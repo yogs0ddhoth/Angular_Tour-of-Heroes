@@ -17,3 +17,7 @@ h2 {
   color: white;
   background-color: #42545C;
 }
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
