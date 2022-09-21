@@ -1,0 +1,33 @@
+<h1>Hero Form</h1>
+{{hero | json}}
+<form [hidden]="submitted"
+  *ngIf="hero"
+  (ngSubmit)="onSubmit()" 
+  #heroForm="ngForm" 
+>
+  
+  <label for="name">Name</label>
+  <input id="name"
+    required
+    [(ngModel)]="hero.name" name="name"
+  >
+
+  <label for="alterEgo">Alter Ego</label>
+  <input id="alterEgo"
+    [(ngModel)]="hero.alterEgo" name="alterEgo"
+  >
+
+  <label for="power">Hero Power</label>
+  <select id="power" 
+    required
+    [(ngModel)]="hero.power" name="power"
+  >
+    <option [value]="" [(ngModel)]="hero.power">{{ hero.power }}</option>
+    <option *ngFor="let pow of powers" [value]="pow">
+      {{ pow }}
+    </option>
+  </select>
+
+  <button type="submit">Save</button>
+</form>
+

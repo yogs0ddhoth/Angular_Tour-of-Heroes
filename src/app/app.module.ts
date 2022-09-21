@@ -13,26 +13,30 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { HeroFormComponent } from './hero-form/hero-form.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
+  imports: [
+    AppRoutingModule,
+    BrowserModule,
+    CommonModule,
+    FormsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+      dataEncapsulation: false,
+    }),
+  ],
   declarations: [
     AppComponent,
     DashboardComponent,
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    HeroSearchComponent
-  ],
-  imports: [
-    AppRoutingModule,
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    )
+    HeroSearchComponent,
+    HeroFormComponent,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
