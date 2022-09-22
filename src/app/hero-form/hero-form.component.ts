@@ -8,7 +8,7 @@ import { Hero } from '../hero';
 })
 export class HeroFormComponent implements OnInit {
   @Input() hero?: Hero;
-  @Output() heroEvent = new EventEmitter<Hero>();
+  @Output() submitEvent = new EventEmitter<Hero>();
 
   powers = ['Really Smart', 'Super Flexible', 'Super Hot', 'Weather Changer'];
   submitted = false;
@@ -17,7 +17,7 @@ export class HeroFormComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    this.heroEvent.emit(this.hero);
+    this.submitEvent.emit(this.hero);
   }
   ngOnInit(): void {}
   

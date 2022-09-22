@@ -9,8 +9,14 @@
   <label for="name">Name</label>
   <input id="name"
     required
-    [(ngModel)]="hero.name" name="name"
+    [(ngModel)]="hero.name" name="name" 
+    #name="ngModel"
   >
+  <div [hidden]="name.valid || name.pristine"
+    class="alert alert-danger"
+  >
+    Name is required
+  </div>
 
   <label for="alterEgo">Alter Ego</label>
   <input id="alterEgo"
@@ -21,12 +27,16 @@
   <select id="power" 
     required
     [(ngModel)]="hero.power" name="power"
+    #power="ngModel"
   >
     <option [value]="" [(ngModel)]="hero.power">{{ hero.power }}</option>
     <option *ngFor="let pow of powers" [value]="pow">
       {{ pow }}
     </option>
   </select>
+  <div [hidden]="power.valid || power.pristine" class="alert alert-danger">
+    Power is required
+  </div>
 
   <button type="submit">Save</button>
 </form>

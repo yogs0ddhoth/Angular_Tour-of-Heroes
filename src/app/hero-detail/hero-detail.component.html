@@ -7,8 +7,10 @@
     <input id="hero-name" [(ngModel)]="hero.name" placeholder="name" />
   </div>
 
-  <app-hero-form [hero]="hero"></app-hero-form>
+  <app-hero-form 
+    [hero]="hero"
+    (submitEvent)="save($event)"></app-hero-form>
 </div>
 
-<button type="button" (click)="save()">save</button>
+<!-- <button type="button" (click)="save(hero)">save</button> -->
 <button type="button" (click)="goBack()">go back</button>
